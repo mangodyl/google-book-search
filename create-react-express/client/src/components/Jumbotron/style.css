@@ -1,0 +1,9 @@
+.jumbotron {
+    clear:  both;
+    padding: 70 0 70 0;
+    text-align: center;
+    background-color: #4F5D75;
+    color: white;
+    font-family: 'Exo', sans-serif;
+    margin: 30px auto;
+}
