@@ -6,8 +6,8 @@ export default {
         return axios.get("/api/saved")
     },
 
-    saveBook: bookData => {
-        return axios.get("/api/saved", bookData)
+    saveBook: savedBook => {
+        return axios.post("/api/saved", savedBook)
     },
 
     deleteSaved: id => {

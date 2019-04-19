@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import BookDiv from "../components/bookDiv";
 import Nav from "../components/Nav";
@@ -45,10 +44,15 @@ class Search extends Component {
         }
     }
 
-    handleSave = bookData => {
-        API.saveBook(bookData)
-            .then(res => alert("Book Saved!"))
-            .catch(err => console.log(err));
+    handleSave = event => {
+        event.preventDefault();
+        console.log(this.state.books)
+        let savedBook = this.state.books.filter(book => book.id === event.target.id)
+        console.log(savedBook[0])
+        savedBook = savedBook[0];
+        API.saveBook(savedBook)
+            .then(this.setState({ message: alert("Your book is saved") }))
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -85,13 +89,14 @@ class Search extends Component {
                                     // console.log(info.imageLinks.thumbnail)
                                     return (
                                         <BookDiv
-                                            key={book._id}
-                                            id={book._id}
+                                            key={book.id}
+                                            id={book.id}
                                             title={info.title}
                                             authors={info.authors}
                                             description={info.description}
                                             // image={info.imageLinks.thumbnail}
                                             link={info.infoLink}
+                                            handleSave={this.handleSave}
                                         />
                                     )
                                 })
