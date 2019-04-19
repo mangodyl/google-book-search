@@ -15,7 +15,7 @@ const SavedDiv = ({
             <h6>{authors}</h6>
             <img src={image} alt="book thumbnail"/>
             <p>{description}</p>
-            <button className="btn btn-danger" id={_id} onClick={handleUnsave}>Unsave</button>
+            <button className="btn btn-danger" onClick={() => handleUnsave(_id)}>Unsave</button>
             <hr />
         </div>
     )
