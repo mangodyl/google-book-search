@@ -46,7 +46,16 @@ class Saved extends Component {
                                 {this.state.books.length ? (
                                     this.state.books.map(book => {
                                         return(
-                                            <SavedDiv />
+                                            <SavedDiv
+                                                key={book._id}
+                                                title={book.title}
+                                                authors={book.author}
+                                                description={book.description}
+                                                image={book.image}
+                                                link={book.link}
+                                                _id={book._id}
+                                                handleUnsave={this.handleUnsave}
+                                            />
                                         )
                                     })
                                 ) : (

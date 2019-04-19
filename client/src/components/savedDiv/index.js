@@ -4,7 +4,7 @@ const SavedDiv = ({
     title,
     authors,
     description,
-    // image,
+    image,
     link,
     _id,
     handleUnsave
@@ -13,7 +13,7 @@ const SavedDiv = ({
         <div className="book-div" data-id={_id}>
             <h5 href={link}>{title}</h5>
             <h6>{authors}</h6>
-            {/* <img src={image}/> */}
+            <img src={image} alt="book thumbnail"/>
             <p>{description}</p>
             <button className="btn btn-danger" id={_id} onClick={handleUnsave}>Unsave</button>
             <hr />
