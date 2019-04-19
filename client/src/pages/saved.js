@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import SavedDiv from "../components/savedDiv";
 import Nav from "../components/Nav";
 import API from '../utils/API';
 
@@ -24,7 +25,7 @@ class Saved extends Component {
     }
 
     handleUnsave = id => {
-        API.deleteSaved()
+        API.deleteSaved(id)
           .then(res => this.loadBooks())
           .catch(err => console.log(err))
     }
@@ -45,7 +46,7 @@ class Saved extends Component {
                                 {this.state.books.length ? (
                                     this.state.books.map(book => {
                                         return(
-                                            <h3>placeholder</h3>
+                                            <SavedDiv />
                                         )
                                     })
                                 ) : (
