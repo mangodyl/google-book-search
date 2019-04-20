@@ -44,6 +44,11 @@ class Search extends Component {
         }
     }
 
+    handleDisableSave = (id) => {
+        document.getElementById(id).disabled = true;
+        document.getElementById(id).innerHTML = "Saved";
+    }
+
     handleSave = event => {
         event.preventDefault();
         console.log(this.state.books)
@@ -56,8 +61,11 @@ class Search extends Component {
             image: savedBook[0].volumeInfo.imageLinks.thumbnail,
             link: savedBook[0].volumeInfo.infoLink
         }
+        this.handleDisableSave(`${savedBook[0].id}`);
         API.saveBook(newSave)
-            .then(this.setState({ message: alert("Your book is saved") }))
+            .then(res => {
+                alert("Your book is saved");
+            })
             .catch(err => console.log(err))
     }
 
