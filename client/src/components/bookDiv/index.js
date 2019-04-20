@@ -12,8 +12,8 @@ const BookDiv = ({
 }) => {
     return (
         <div className="book-div" data-id={id}>
-            <h5 href={link}>{title}</h5>
-            <h6>{authors}</h6>
+            <h4 href={link}>{title}</h4>
+            <h5>{authors}</h5>
             {/* <img src={image}/> */}
             <p>{description}</p>
             <button className="btn btn-primary" id={id} onClick={handleSave}>Save</button>

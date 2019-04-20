@@ -11,8 +11,8 @@ const SavedDiv = ({
 }) => {
     return (
         <div className="book-div" data-id={_id}>
-            <h5 href={link}>{title}</h5>
-            <h6>{authors}</h6>
+            <h4 href={link}>{title}</h4>
+            <h5>{authors}</h5>
             <img src={image} alt="book thumbnail"/>
             <p>{description}</p>
             <button className="btn btn-danger" onClick={() => handleUnsave(_id)}>Unsave</button>
