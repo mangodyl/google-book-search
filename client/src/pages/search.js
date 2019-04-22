@@ -34,7 +34,6 @@ class Search extends Component {
         if (this.state.search) {
             API.searchGoogle(this.state.search)
                 .then(res => {
-                    console.log(res.data.items);
                     this.setState({
                         books: res.data.items,
                         search: ""
@@ -51,9 +50,7 @@ class Search extends Component {
 
     handleSave = event => {
         event.preventDefault();
-        console.log(this.state.books)
         let savedBook = this.state.books.filter(book => book.id === event.target.id)
-        console.log(savedBook[0])
         let newSave = {
             title: savedBook[0].volumeInfo.title,
             author: savedBook[0].volumeInfo.authors[0],
@@ -100,7 +97,6 @@ class Search extends Component {
                             {this.state.books.length ? (
                                 this.state.books.map(book => {
                                     const info = book.volumeInfo
-                                    // console.log(info.imageLinks.thumbnail)
                                     return (
                                         <BookDiv
                                             key={book.id}
@@ -108,7 +104,7 @@ class Search extends Component {
                                             title={info.title}
                                             authors={info.authors}
                                             description={info.description}
-                                            // image={info.imageLinks.thumbnail}
+                                            image={info}
                                             link={info.infoLink}
                                             handleSave={this.handleSave}
                                         />
