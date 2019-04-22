@@ -2,7 +2,7 @@
 
 Find and save books using this full-stack react app!
 
-[Heroku-link](heroku-link)
+[https://google-book-search-db.herokuapp.com/](https://google-book-search-db.herokuapp.com/)
 
 ***
 
